@@ -18,6 +18,7 @@ define( 'OJA_TALU_URI', get_template_directory_uri() );
 
 $oja_talu_includes = array(
 	'inc/theme-setup.php',    // add_theme_support, nav menus, image sizes.
+	'inc/urls.php',           // oja_talu_url() — single source of truth for internal links.
 	'inc/block-styles.php',   // register_block_style() variations (gallery, quote).
 	'inc/blocks.php',         // custom block registration.
 	'inc/patterns.php',       // block pattern + pattern category registration.

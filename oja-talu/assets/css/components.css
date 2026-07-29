@@ -29,7 +29,7 @@
 	font-size: var( --wp--preset--font-size--label );
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
-	color: var( --wp--preset--color--moss );
+	color: var( --wp--preset--color--moss-text );
 }
 
 .oja-form__field input,
@@ -37,6 +37,7 @@
 	font-family: var( --wp--preset--font-family--work-sans );
 	font-size: var( --wp--preset--font-size--body );
 	padding: 0.65rem 0.85rem;
+	border: 1px solid rgba( 128, 96, 68, 0.4 ); /* fallback: oak at 40% opacity, pre-computed */
 	border: 1px solid color-mix( in srgb, var( --wp--preset--color--oak ) 40%, transparent );
 	border-radius: 8px;
 	background: var( --wp--preset--color--linen-raised );
@@ -78,6 +79,7 @@
 
 .oja-form__submit:hover,
 .oja-form__submit:focus-visible {
+	background: #2A3D31; /* fallback: forest darkened 15%, pre-computed */
 	background: color-mix( in srgb, var( --wp--preset--color--forest ) 85%, black );
 }
 
@@ -88,13 +90,15 @@
 }
 
 .oja-form-notice--success {
+	background: rgba( 113, 128, 100, 0.18 ); /* fallback: moss at 18% opacity, pre-computed */
 	background: color-mix( in srgb, var( --wp--preset--color--moss ) 18%, transparent );
 	color: var( --wp--preset--color--forest );
 }
 
 .oja-form-notice--error {
+	background: rgba( 184, 102, 61, 0.18 ); /* fallback: clay at 18% opacity, pre-computed */
 	background: color-mix( in srgb, var( --wp--preset--color--clay ) 18%, transparent );
-	color: var( --wp--preset--color--clay );
+	color: var( --wp--preset--color--clay-text );
 }
 
 /* ── Shop category tabs (patterns/shop-intro.php) ─────────────────── */
@@ -120,7 +124,7 @@
 }
 
 .oja-shop-tabs__tab.is-active {
-	color: var( --wp--preset--color--clay );
+	color: var( --wp--preset--color--clay-text );
 	border-bottom-color: var( --wp--preset--color--clay );
 }
 
@@ -166,6 +170,36 @@
 .oja-header.is-scrolled {
 	background: var( --wp--preset--color--linen );
 	border-bottom-color: var( --wp--preset--color--linen-raised );
+}
+
+/* WordPress reserves 32px (46px on narrow admin-bar breakpoints) for the
+   logged-in admin bar via a margin on <html>, but a `position: sticky`
+   child doesn't inherit that offset automatically — without this, the
+   header would sit partly under the admin bar for logged-in editors. */
+body.admin-bar .oja-header {
+	top: 32px;
+}
+
+@media screen and ( max-width: 782px ) {
+	body.admin-bar .oja-header {
+		top: 46px;
+	}
+}
+
+/* ── Footer link colour on the Forest background ───────────────────── */
+/* The global link :hover colour (clay-text, §theme.json) is tuned for
+   Linen backgrounds — on Forest it drops to 1.63:1, well under AA. Use
+   the lightened "clay-on-dark" token here instead, which clears 5.13:1
+   against Forest. Also fixes the keyboard-focus outline for the same
+   reason: Forest-on-Forest is invisible. */
+
+.oja-footer a:hover,
+.oja-footer a:focus-visible {
+	color: var( --wp--preset--color--clay-on-dark );
+}
+
+.oja-footer :focus-visible {
+	outline-color: var( --wp--preset--color--linen );
 }
 
 /* ── Footer mobile accordion (JS-driven, see assets/js) ────────────── */

@@ -70,7 +70,7 @@ $oja_tabs = array(
 			<?php
 			if ( '' === $oja_slug ) {
 				$oja_is_active = ! is_tax( 'product_cat' );
-				$oja_url       = home_url( '/pood/' );
+				$oja_url       = oja_talu_url( 'shop' );
 			} else {
 				$oja_term      = get_term_by( 'slug', $oja_slug, 'product_cat' );
 				$oja_is_active = $oja_term instanceof WP_Term && $oja_current_term_id === $oja_term->term_id;

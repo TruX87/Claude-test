@@ -7,6 +7,12 @@
  *
  * @package Oja_Talu
  */
+
+$oja_aed_cat_term = get_term_by( 'slug', 'oja-aed', 'product_cat' );
+$oja_aed_cat_url  = $oja_aed_cat_term instanceof WP_Term && ! is_wp_error( get_term_link( $oja_aed_cat_term ) )
+	? get_term_link( $oja_aed_cat_term )
+	: oja_talu_url( 'shop' );
+$oja_aed_cat_url  = esc_url( $oja_aed_cat_url );
 ?>
 <!-- wp:oja-talu/hero -->
 <div class="wp-block-oja-talu-hero oja-hero"><div class="oja-hero__content"><h1 class="oja-hero__title">Oja Aed</h1><p class="oja-hero__lead">Aed, mis annab meile kõik, mida hooaeg lubab.</p></div></div>
@@ -41,8 +47,8 @@
 
 	<!-- wp:buttons -->
 	<div class="wp-block-buttons">
-		<!-- wp:button {"className":"is-style-outline"} -->
-		<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/pood/?product_cat=oja-aed">Vaata kõiki Oja Aed tooteid</a></div>
+		<!-- wp:button {"className":"is-style-outline","url":"<?php echo esc_js( $oja_aed_cat_url ); ?>"} -->
+		<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="<?php echo $oja_aed_cat_url; ?>">Vaata kõiki Oja Aed tooteid</a></div>
 		<!-- /wp:button -->
 	</div>
 	<!-- /wp:buttons -->

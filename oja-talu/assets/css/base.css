@@ -73,12 +73,11 @@ html {
 	outline-offset: 2px;
 }
 
-/* On dark grounds (e.g. inside the Forest-background footer) the same
-   outline colour would disappear — swap to Linen there. */
-.wp-block-template-part[data-oja-surface="dark"] :focus-visible,
-footer.wp-block-template-part :focus-visible {
-	outline-color: var( --wp--preset--color--linen );
-}
+/* Dark-ground focus colour (e.g. inside the Forest-background footer)
+   is handled in components.css against `.oja-footer` directly — a
+   generic `wp-block-template-part` class doesn't actually exist on the
+   rendered frontend (template parts don't get that wrapper class by
+   default), so a selector built on it here would silently never match. */
 
 /* ── Skip link ──────────────────────────────────────────────────── */
 /* Required for keyboard/screen-reader users to bypass the header

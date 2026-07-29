@@ -13,12 +13,14 @@
  *
  * @package Oja_Talu
  */
+
+$oja_url_shop = esc_url( oja_talu_url( 'shop' ) );
 ?>
 <!-- wp:group {"layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|6"}}}} -->
 <div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--6)">
 
-	<!-- wp:paragraph {"fontSize":"label","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.1em"}},"textColor":"moss"} -->
-	<p class="has-moss-color has-text-color has-label-font-size">Poest</p>
+	<!-- wp:paragraph {"fontSize":"label","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.1em"}},"textColor":"moss-text"} -->
+	<p class="has-moss-text-color has-text-color has-label-font-size">Poest</p>
 	<!-- /wp:paragraph -->
 
 	<!-- wp:columns -->
@@ -32,8 +34,8 @@
 
 	<!-- wp:buttons -->
 	<div class="wp-block-buttons">
-		<!-- wp:button {"className":"is-style-outline"} -->
-		<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/pood/">Külasta poodi</a></div>
+		<!-- wp:button {"className":"is-style-outline","url":"<?php echo esc_js( $oja_url_shop ); ?>"} -->
+		<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="<?php echo $oja_url_shop; ?>">Külasta poodi</a></div>
 		<!-- /wp:button -->
 	</div>
 	<!-- /wp:buttons -->

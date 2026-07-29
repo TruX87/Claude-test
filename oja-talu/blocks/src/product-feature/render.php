@@ -31,7 +31,7 @@ $oja_avail   = function_exists( 'oja_talu_product_availability_label' )
 
 $wrapper_attributes = get_block_wrapper_attributes( array( 'class' => 'oja-product-feature' ) );
 ?>
-<div <?php echo wp_kses_post( $wrapper_attributes ); ?>>
+<div <?php echo $wrapper_attributes; /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- get_block_wrapper_attributes() output is already escaped; wrapping it in wp_kses_post() is nonstandard since that function expects full tag markup, not a bare attribute string. */ ?>>
 	<a class="oja-product-feature__link-wrap" href="<?php echo esc_url( $oja_product->get_permalink() ); ?>">
 		<div class="oja-product-feature__media">
 			<?php echo wp_kses_post( $oja_product->get_image( 'oja-talu-square' ) ); ?>

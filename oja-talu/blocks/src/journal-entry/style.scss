@@ -24,7 +24,7 @@
 		font-size: var( --wp--preset--font-size--label );
 		text-transform: uppercase;
 		letter-spacing: 0.05em;
-		color: var( --wp--preset--color--moss );
+		color: var( --wp--preset--color--moss-text );
 	}
 
 	&__title {
@@ -45,6 +45,6 @@
 		background: var( --wp--preset--color--linen-raised );
 		border-radius: 8px;
 		font-style: italic;
-		color: var( --wp--preset--color--moss );
+		color: var( --wp--preset--color--moss-text );
 	}
 }

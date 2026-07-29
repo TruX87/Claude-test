@@ -67,6 +67,7 @@
 
 		&:hover,
 		&:focus-visible {
+			background: #2A3D31; /* fallback: forest darkened 15%, pre-computed */
 			background: color-mix( in srgb, var( --wp--preset--color--forest ) 85%, black );
 			color: var( --wp--preset--color--linen );
 		}

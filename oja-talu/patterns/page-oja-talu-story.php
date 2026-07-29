@@ -7,6 +7,8 @@
  *
  * @package Oja_Talu
  */
+
+$oja_url_journal = esc_url( oja_talu_url( 'journal' ) );
 ?>
 <!-- wp:oja-talu/hero -->
 <div class="wp-block-oja-talu-hero oja-hero"><div class="oja-hero__content"><h1 class="oja-hero__title">Oja Talu</h1><p class="oja-hero__lead">Aeglane elu Saaremaal — koht, kus aed, tuli ja aastaajad kohtuvad.</p></div></div>
@@ -43,5 +45,5 @@
 <!-- /wp:oja-talu/story -->
 
 <!-- wp:paragraph {"align":"center","fontSize":"label","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.06em"}}} -->
-<p class="has-text-align-center has-label-font-size"><a href="/paevik/">Jälgi taastamist päevikus →</a></p>
+<p class="has-text-align-center has-label-font-size"><a href="<?php echo $oja_url_journal; ?>">Jälgi taastamist päevikus →</a></p>
 <!-- /wp:paragraph -->

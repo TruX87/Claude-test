@@ -15,9 +15,12 @@ defined( 'ABSPATH' ) || exit;
 
 /**
  * Register a plain "SEO description" field on posts, pages, products,
- * and Journal entries, exposed in the block editor via the native
- * Post Meta / Custom Fields panel (no custom sidebar UI needed for one
- * field).
+ * and Journal entries. `register_post_meta()` alone only exposes the
+ * field over REST — it does not create an editor UI. The block editor
+ * (posts/pages/Journal) gets a real sidebar field via
+ * assets/js/seo-panel.js; WooCommerce's classic Product edit screen
+ * gets a matching meta box below, since Products don't use the block
+ * editor by default.
  */
 function oja_talu_register_seo_meta(): void {
 	$oja_post_types = array( 'post', 'page', 'product', 'oja_journal' );
@@ -38,6 +41,90 @@ function oja_talu_register_seo_meta(): void {
 	}
 }
 add_action( 'init', 'oja_talu_register_seo_meta' );
+
+/**
+ * Enqueue the SEO sidebar panel in the block editor (posts, pages,
+ * Journal entries).
+ */
+function oja_talu_enqueue_seo_panel(): void {
+	wp_enqueue_script(
+		'oja-talu-seo-panel',
+		OJA_TALU_URI . '/assets/js/seo-panel.js',
+		array( 'wp-plugins', 'wp-edit-post', 'wp-components', 'wp-data', 'wp-compose', 'wp-element', 'wp-i18n' ),
+		OJA_TALU_VERSION,
+		true
+	);
+	wp_set_script_translations( 'oja-talu-seo-panel', 'oja-talu', OJA_TALU_DIR . '/languages' );
+}
+add_action( 'enqueue_block_editor_assets', 'oja_talu_enqueue_seo_panel' );
+
+/**
+ * Add a matching "SEO" meta box on the classic Product edit screen,
+ * which doesn't use the block editor by default even when other post
+ * types on the same site do.
+ */
+function oja_talu_add_product_seo_metabox(): void {
+	add_meta_box(
+		'oja-talu-seo',
+		__( 'SEO', 'oja-talu' ),
+		'oja_talu_render_product_seo_metabox',
+		'product',
+		'normal',
+		'default'
+	);
+}
+add_action( 'add_meta_boxes_product', 'oja_talu_add_product_seo_metabox' );
+
+/**
+ * Render the Product SEO meta box.
+ *
+ * @param WP_Post $post Current product post.
+ */
+function oja_talu_render_product_seo_metabox( WP_Post $post ): void {
+	wp_nonce_field( 'oja_talu_product_seo', 'oja_talu_product_seo_nonce' );
+	$oja_value = get_post_meta( $post->ID, '_oja_seo_description', true );
+	?>
+	<p>
+		<label for="oja_seo_description"><?php esc_html_e( 'Meta description', 'oja-talu' ); ?></label><br />
+		<textarea
+			id="oja_seo_description"
+			name="oja_seo_description"
+			rows="3"
+			style="width:100%;"
+		><?php echo esc_textarea( $oja_value ); ?></textarea>
+	</p>
+	<p class="description">
+		<?php esc_html_e( 'Shown in search results and social shares. Falls back to the short description if left blank.', 'oja-talu' ); ?>
+	</p>
+	<?php
+}
+
+/**
+ * Save the Product SEO meta box.
+ *
+ * @param int $product_id Product being saved.
+ */
+function oja_talu_save_product_seo_metabox( int $product_id ): void {
+	if (
+		! isset( $_POST['oja_talu_product_seo_nonce'] ) ||
+		! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['oja_talu_product_seo_nonce'] ) ), 'oja_talu_product_seo' )
+	) {
+		return;
+	}
+
+	if ( ! current_user_can( 'edit_post', $product_id ) ) {
+		return;
+	}
+
+	if ( isset( $_POST['oja_seo_description'] ) ) {
+		update_post_meta(
+			$product_id,
+			'_oja_seo_description',
+			sanitize_textarea_field( wp_unslash( $_POST['oja_seo_description'] ) )
+		);
+	}
+}
+add_action( 'save_post_product', 'oja_talu_save_product_seo_metabox' );
 
 /**
  * Resolve the description to use for the current singular view: the

@@ -62,23 +62,38 @@ add_action( 'init', 'oja_talu_register_blocks' );
  * labels) are translated per site language rather than frozen to
  * whichever locale the editor happened to be using when they saved.
  *
+ * Reads the actual registered script handle off each block type rather
+ * than guessing WordPress's handle-naming convention by hand — the
+ * guessed names (`{block-name}-editor-script`) are usually right, but
+ * "usually" isn't good enough for something that fails silently
+ * (an unmatched handle just means translations never load, with no
+ * error to notice). This runs after oja_talu_register_blocks() so the
+ * block types actually exist to inspect.
+ *
  * Translation .json files are generated with `wp i18n make-json` from
  * the theme's languages/*.po files and placed in /languages.
  */
 function oja_talu_set_block_script_translations(): void {
-	$oja_block_handles = array(
-		'oja-talu-hero-editor-script',
-		'oja-talu-story-editor-script',
-		'oja-talu-brand-card-editor-script',
-		'oja-talu-brand-cards-editor-script',
-		'oja-talu-season-editor-script',
-		'oja-talu-journal-entry-editor-script',
-		'oja-talu-product-feature-editor-script',
-		'oja-talu-visit-editor-script',
-	);
+	$oja_registry = WP_Block_Type_Registry::get_instance();
 
-	foreach ( $oja_block_handles as $oja_handle ) {
-		wp_set_script_translations( $oja_handle, 'oja-talu', OJA_TALU_DIR . '/languages' );
+	foreach ( $oja_registry->get_all_registered() as $oja_block_name => $oja_block_type ) {
+		if ( ! str_starts_with( $oja_block_name, 'oja-talu/' ) ) {
+			continue;
+		}
+
+		// WP 5.9+ blocks may register multiple script handles
+		// (`editor_script_handles`); older/simple registrations use the
+		// singular `editor_script`. Check both rather than assuming.
+		$oja_handles = array();
+		if ( ! empty( $oja_block_type->editor_script_handles ) ) {
+			$oja_handles = (array) $oja_block_type->editor_script_handles;
+		} elseif ( ! empty( $oja_block_type->editor_script ) ) {
+			$oja_handles = array( $oja_block_type->editor_script );
+		}
+
+		foreach ( $oja_handles as $oja_handle ) {
+			wp_set_script_translations( $oja_handle, 'oja-talu', OJA_TALU_DIR . '/languages' );
+		}
 	}
 }
 add_action( 'init', 'oja_talu_set_block_script_translations', 20 );

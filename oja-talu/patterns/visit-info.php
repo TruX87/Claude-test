@@ -25,8 +25,8 @@
 
 <!-- wp:group {"layout":{"type":"constrained","contentSize":"680px"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|5","bottom":"var:preset|spacing|6"}}}} -->
 <div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--6)">
-	<!-- wp:paragraph {"fontSize":"label","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.1em"}},"textColor":"moss"} -->
-	<p class="has-moss-color has-text-color has-label-font-size">Kirjuta meile</p>
+	<!-- wp:paragraph {"fontSize":"label","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.1em"}},"textColor":"moss-text"} -->
+	<p class="has-moss-text-color has-text-color has-label-font-size">Kirjuta meile</p>
 	<!-- /wp:paragraph -->
 
 	<!-- wp:shortcode -->

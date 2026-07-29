@@ -34,7 +34,7 @@ $oja_thumb     = get_the_post_thumbnail(
 
 $wrapper_attributes = get_block_wrapper_attributes( array( 'class' => 'oja-journal-entry' ) );
 ?>
-<div <?php echo wp_kses_post( $wrapper_attributes ); ?>>
+<div <?php echo $wrapper_attributes; /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- get_block_wrapper_attributes() output is already escaped; wrapping it in wp_kses_post() is nonstandard since that function expects full tag markup, not a bare attribute string. */ ?>>
 	<a class="oja-journal-entry__link-wrap" href="<?php echo esc_url( $oja_permalink ); ?>">
 		<?php if ( $oja_thumb ) : ?>
 			<div class="oja-journal-entry__media"><?php echo wp_kses_post( $oja_thumb ); ?></div>

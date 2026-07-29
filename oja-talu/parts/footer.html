@@ -1,3 +1,11 @@
+<!--
+	Each column below has its own real navigation-link children rather
+	than an unconfigured Navigation block — four empty ones would each
+	independently fall back to the same auto-generated list of every top-
+	level Page, making all four columns identical. URLs are best-guess
+	paths (see inc/urls.php); re-point each link once real pages/anchors
+	exist, via the Site Editor.
+-->
 <!-- wp:group {"tagName":"footer","className":"oja-footer","backgroundColor":"forest","textColor":"linen","style":{"spacing":{"padding":{"top":"var:preset|spacing|6","bottom":"var:preset|spacing|4"}}},"layout":{"type":"constrained"}} -->
 <footer class="wp-block-group oja-footer has-linen-color has-forest-background-color has-text-color has-background" style="padding-top:var(--wp--preset--spacing--6);padding-bottom:var(--wp--preset--spacing--4)">
 
@@ -9,7 +17,10 @@
 			<!-- wp:heading {"level":4,"fontSize":"label","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.08em"}}} -->
 			<h4 class="wp-block-heading has-label-font-size">Oja Talu</h4>
 			<!-- /wp:heading -->
-			<!-- wp:navigation {"layout":{"type":"flex","orientation":"vertical"},"overlayMenu":"never"} /-->
+			<!-- wp:navigation {"layout":{"type":"flex","orientation":"vertical"},"overlayMenu":"never"} -->
+			<!-- wp:navigation-link {"label":"Meie lugu","url":"/meie-lugu/","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"Päevik","url":"/paevik/","kind":"custom"} /-->
+			<!-- /wp:navigation -->
 		</div>
 		<!-- /wp:column -->
 
@@ -18,7 +29,10 @@
 			<!-- wp:heading {"level":4,"fontSize":"label","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.08em"}}} -->
 			<h4 class="wp-block-heading has-label-font-size">Oja Aed</h4>
 			<!-- /wp:heading -->
-			<!-- wp:navigation {"layout":{"type":"flex","orientation":"vertical"},"overlayMenu":"never"} /-->
+			<!-- wp:navigation {"layout":{"type":"flex","orientation":"vertical"},"overlayMenu":"never"} -->
+			<!-- wp:navigation-link {"label":"Aed & ürdid","url":"/oja-aed/","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"Käsitöö","url":"/oja-aed/#kasitoo","kind":"custom"} /-->
+			<!-- /wp:navigation -->
 		</div>
 		<!-- /wp:column -->
 
@@ -27,7 +41,10 @@
 			<!-- wp:heading {"level":4,"fontSize":"label","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.08em"}}} -->
 			<h4 class="wp-block-heading has-label-font-size">Rohebaar</h4>
 			<!-- /wp:heading -->
-			<!-- wp:navigation {"layout":{"type":"flex","orientation":"vertical"},"overlayMenu":"never"} /-->
+			<!-- wp:navigation {"layout":{"type":"flex","orientation":"vertical"},"overlayMenu":"never"} -->
+			<!-- wp:navigation-link {"label":"Menüü","url":"/rohebaar/#menuu","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"Üritused","url":"/rohebaar/#uritused","kind":"custom"} /-->
+			<!-- /wp:navigation -->
 		</div>
 		<!-- /wp:column -->
 
@@ -36,7 +53,10 @@
 			<!-- wp:heading {"level":4,"fontSize":"label","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.08em"}}} -->
 			<h4 class="wp-block-heading has-label-font-size">Pood &amp; külastus</h4>
 			<!-- /wp:heading -->
-			<!-- wp:navigation {"layout":{"type":"flex","orientation":"vertical"},"overlayMenu":"never"} /-->
+			<!-- wp:navigation {"layout":{"type":"flex","orientation":"vertical"},"overlayMenu":"never"} -->
+			<!-- wp:navigation-link {"label":"Pood","url":"/pood/","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"Külasta meid","url":"/kulasta-meid/","kind":"custom"} /-->
+			<!-- /wp:navigation -->
 		</div>
 		<!-- /wp:column -->
 

@@ -131,6 +131,12 @@ add_action( 'wp_enqueue_scripts', 'oja_talu_enqueue_assets' );
  * @return string Filtered attributes string with a class attribute appended.
  */
 function oja_talu_no_js_class( string $output ): string {
+	// Defensive: if another plugin's `language_attributes` filter already
+	// added a class attribute, append to it instead of emitting a second
+	// (technically invalid, if harmless) `class=""` attribute.
+	if ( preg_match( '/class="([^"]*)"/', $output, $oja_matches ) ) {
+		return str_replace( $oja_matches[0], 'class="' . trim( $oja_matches[1] . ' no-js' ) . '"', $output );
+	}
 	return $output . ' class="no-js"';
 }
 add_filter( 'language_attributes', 'oja_talu_no_js_class' );

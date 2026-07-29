@@ -39,6 +39,7 @@
 
 .wc-block-components-quantity-selector {
 	border-radius: 8px;
+	border-color: rgba( 128, 96, 68, 0.4 ); /* fallback: oak at 40% opacity, pre-computed */
 	border-color: color-mix( in srgb, var( --wp--preset--color--oak ) 40%, transparent );
 }
 
@@ -50,6 +51,7 @@
 .woocommerce-message,
 .wc-block-components-notice-banner.is-success {
 	border-left-color: var( --wp--preset--color--moss );
+	background: #E5E3D6; /* fallback: moss 12% over linen, pre-computed */
 	background: color-mix( in srgb, var( --wp--preset--color--moss ) 12%, var( --wp--preset--color--linen ) );
 	color: var( --wp--preset--color--charcoal );
 }
@@ -57,6 +59,7 @@
 .woocommerce-error,
 .wc-block-components-notice-banner.is-error {
 	border-left-color: var( --wp--preset--color--clay );
+	background: #EEDFD2; /* fallback: clay 12% over linen, pre-computed */
 	background: color-mix( in srgb, var( --wp--preset--color--clay ) 12%, var( --wp--preset--color--linen ) );
 	color: var( --wp--preset--color--charcoal );
 }

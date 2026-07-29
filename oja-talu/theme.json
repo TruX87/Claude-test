@@ -20,7 +20,10 @@
 				{ "slug": "clay", "name": "Warm Clay", "color": "#B8663D" },
 				{ "slug": "oak", "name": "Oak Wood", "color": "#806044" },
 				{ "slug": "charcoal", "name": "Charcoal", "color": "#292925" },
-				{ "slug": "moss", "name": "Moss", "color": "#718064" }
+				{ "slug": "moss", "name": "Moss", "color": "#718064" },
+				{ "slug": "clay-text", "name": "Warm Clay (text)", "color": "#935130" },
+				{ "slug": "moss-text", "name": "Moss (text)", "color": "#5A6650" },
+				{ "slug": "clay-on-dark", "name": "Warm Clay (on Forest)", "color": "#DBB29E" }
 			]
 		},
 		"typography": {
@@ -130,7 +133,7 @@
 				"color": { "text": "var(--wp--preset--color--forest)" },
 				"typography": { "textDecoration": "underline" },
 				":hover": {
-					"color": { "text": "var(--wp--preset--color--clay)" }
+					"color": { "text": "var(--wp--preset--color--clay-text)" }
 				}
 			},
 			"heading": {
@@ -172,7 +175,7 @@
 					"textTransform": "uppercase",
 					"letterSpacing": "0.1em"
 				},
-				"color": { "text": "var(--wp--preset--color--moss)" }
+				"color": { "text": "var(--wp--preset--color--moss-text)" }
 			}
 		},
 		"blocks": {

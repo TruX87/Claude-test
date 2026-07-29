@@ -36,10 +36,13 @@
 	quantity logic independently would be the actual shortcut here, and
 	a fragile one. This just scrolls back up to the real form; see
 	assets/js/interactivity.js and assets/css/woocommerce.css
-	(.oja-sticky-atc).
+	(.oja-sticky-atc). Deliberately does not repeat the product name —
+	that already exists once, as the page's own <h1>, immediately above
+	the real form this bar scrolls to; repeating it here as a second
+	heading would duplicate an entry in a screen-reader user's headings
+	outline for no benefit.
 -->
-<div class="oja-sticky-atc">
-	<!-- wp:post-title {"level":4,"fontSize":"body"} /-->
+<div class="oja-sticky-atc" role="region" aria-label="Osta">
 	<!-- wp:woocommerce/product-price {"fontSize":"body"} /-->
 	<button class="oja-sticky-atc__button" type="button">Osta</button>
 </div>

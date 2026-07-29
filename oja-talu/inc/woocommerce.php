@@ -11,15 +11,16 @@
 
 defined( 'ABSPATH' ) || exit;
 
-/**
- * Declare WooCommerce block-template support and drop the wrapper
- * markup Woo would otherwise inject around classic (non-block) templates
- * — this theme has none of those, everything is a block template.
+/*
+ * No add_theme_support() call is needed to opt into WooCommerce's block
+ * templates (Cart, Checkout, archive-product, etc.) — WooCommerce
+ * detects this automatically via wp_is_block_theme(), which is true for
+ * any theme with a theme.json and a /templates directory. An earlier
+ * draft of this file declared add_theme_support('wc-blocks'), which is
+ * not a real, documented WooCommerce feature flag and did nothing;
+ * removed rather than left in place implying a feature that doesn't
+ * exist.
  */
-function oja_talu_woocommerce_setup(): void {
-	add_theme_support( 'wc-blocks' );
-}
-add_action( 'after_setup_theme', 'oja_talu_woocommerce_setup' );
 
 /**
  * "Tagasi {month}" availability text.

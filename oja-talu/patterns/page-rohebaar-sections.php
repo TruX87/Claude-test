@@ -7,6 +7,8 @@
  *
  * @package Oja_Talu
  */
+
+$oja_url_contact = esc_url( oja_talu_url( 'contact' ) );
 ?>
 <!-- wp:oja-talu/hero -->
 <div class="wp-block-oja-talu-hero oja-hero"><div class="oja-hero__content"><h1 class="oja-hero__title">Rohebaar</h1><p class="oja-hero__lead">Õhtu, mis algab tulest.</p></div></div>
@@ -71,8 +73,8 @@
 	<!-- /wp:paragraph -->
 	<!-- wp:buttons -->
 	<div class="wp-block-buttons">
-		<!-- wp:button -->
-		<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/kontakt/">Broneeri laud</a></div>
+		<!-- wp:button {"url":"<?php echo esc_js( $oja_url_contact ); ?>"} -->
+		<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="<?php echo $oja_url_contact; ?>">Broneeri laud</a></div>
 		<!-- /wp:button -->
 	</div>
 	<!-- /wp:buttons -->

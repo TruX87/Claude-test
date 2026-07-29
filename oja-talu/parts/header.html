@@ -3,7 +3,21 @@
 
 	<!-- wp:site-logo {"width":140} /-->
 
-	<!-- wp:navigation {"overlayMenu":"mobile","overlayBackgroundColor":"linen","overlayTextColor":"forest","layout":{"type":"flex","justifyContent":"center"}} /-->
+	<!--
+		Real link children rather than an unconfigured Navigation block:
+		an empty core/navigation with no `ref` falls back to auto-listing
+		every top-level Page, which is not this menu. URLs below are
+		best-guess paths (see inc/urls.php) — re-point each link at the
+		real page once content exists, via the Site Editor.
+	-->
+	<!-- wp:navigation {"overlayMenu":"mobile","overlayBackgroundColor":"linen","overlayTextColor":"forest","layout":{"type":"flex","justifyContent":"center"}} -->
+	<!-- wp:navigation-link {"label":"Meie lugu","url":"/meie-lugu/","kind":"custom"} /-->
+	<!-- wp:navigation-link {"label":"Oja Aed","url":"/oja-aed/","kind":"custom"} /-->
+	<!-- wp:navigation-link {"label":"Rohebaar","url":"/rohebaar/","kind":"custom"} /-->
+	<!-- wp:navigation-link {"label":"Pood","url":"/pood/","kind":"custom"} /-->
+	<!-- wp:navigation-link {"label":"Päevik","url":"/paevik/","kind":"custom"} /-->
+	<!-- wp:navigation-link {"label":"Külasta","url":"/kulasta-meid/","kind":"custom"} /-->
+	<!-- /wp:navigation -->
 
 	<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"},"style":{"spacing":{"blockGap":"var:preset|spacing|2"}}} -->
 	<div class="wp-block-group">
