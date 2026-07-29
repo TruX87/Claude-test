@@ -1,0 +1,52 @@
+.oja-brand-card {
+	&__link-wrap {
+		display: block;
+		text-decoration: none;
+		color: inherit;
+	}
+
+	img {
+		display: block;
+		width: 100%;
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
+		border-radius: 16px;
+		transition: transform var( --oja-duration-slow, 500ms ) var( --oja-ease-calm, ease );
+	}
+
+	&__link-wrap:hover img,
+	&__link-wrap:focus-visible img {
+		transform: scale( 1.03 );
+	}
+
+	h3 {
+		font-family: var( --wp--preset--font-family--fraunces );
+		font-size: var( --wp--preset--font-size--h3 );
+		color: var( --wp--preset--color--forest );
+		margin: 0.75rem 0 0.25rem;
+	}
+
+	p {
+		font-size: var( --wp--preset--font-size--body );
+		color: var( --wp--preset--color--charcoal );
+		margin: 0 0 0.5rem;
+	}
+
+	&__cta,
+	&__eyebrow {
+		font-family: var( --wp--preset--font-family--work-sans );
+		font-size: var( --wp--preset--font-size--label );
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		color: var( --wp--preset--color--clay );
+	}
+
+	@media ( prefers-reduced-motion: reduce ) {
+		img {
+			transition: none;
+		}
+		&__link-wrap:hover img {
+			transform: none;
+		}
+	}
+}

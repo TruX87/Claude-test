@@ -1,0 +1,27 @@
+.oja-brand-cards {
+	max-width: var( --wp--style--global--wide-size, 1280px );
+	margin-inline: auto;
+	padding-block: var( --wp--preset--spacing--6 );
+
+	.block-editor-inner-blocks,
+	.block-editor-block-list__layout {
+		display: grid;
+		grid-template-columns: repeat( 3, 1fr );
+		gap: var( --wp--preset--spacing--4 );
+	}
+}
+
+/* Front-end: InnerBlocks.Content has no extra wrapper, so the card
+   blocks are direct children of .oja-brand-cards itself. */
+.oja-brand-cards {
+	display: grid;
+	grid-template-columns: repeat( 3, 1fr );
+	gap: var( --wp--preset--spacing--4 );
+}
+
+@media ( max-width: 781px ) {
+	.oja-brand-cards {
+		grid-template-columns: 1fr;
+		gap: var( --wp--preset--spacing--5 );
+	}
+}

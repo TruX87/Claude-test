@@ -1,0 +1,61 @@
+.oja-visit {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: var( --wp--preset--spacing--5 );
+	align-items: start;
+	max-width: var( --wp--style--global--content-size, 900px );
+	margin-inline: auto;
+	padding-block: var( --wp--preset--spacing--6 );
+
+	&__list {
+		display: grid;
+		grid-template-columns: 100px 1fr;
+		gap: 0.5rem;
+		margin: 0 0 1rem;
+
+		dt {
+			font-family: var( --wp--preset--font-family--work-sans );
+			font-size: var( --wp--preset--font-size--label );
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+			color: var( --wp--preset--color--moss );
+			padding-top: 0.15rem;
+		}
+
+		dd {
+			margin: 0;
+			font-size: var( --wp--preset--font-size--body );
+		}
+	}
+
+	&__note {
+		max-width: 48ch;
+		color: var( --wp--preset--color--charcoal );
+	}
+
+	&__cta {
+		display: inline-flex;
+		margin-top: var( --wp--preset--spacing--3 );
+		font-family: var( --wp--preset--font-family--work-sans );
+		font-size: var( --wp--preset--font-size--label );
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		text-decoration: none;
+		padding: 1rem 2rem;
+		border-radius: 999px;
+		background: var( --wp--preset--color--forest );
+		color: var( --wp--preset--color--linen );
+	}
+
+	&__map img {
+		display: block;
+		width: 100%;
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
+		border-radius: 16px;
+	}
+
+	@media ( max-width: 781px ) {
+		grid-template-columns: 1fr;
+	}
+}

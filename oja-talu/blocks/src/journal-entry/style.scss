@@ -1,0 +1,50 @@
+.oja-journal-entry {
+	max-width: var( --wp--style--global--content-size, 900px );
+	margin-inline: auto;
+	padding-block: var( --wp--preset--spacing--5 );
+
+	&__link-wrap {
+		display: block;
+		text-decoration: none;
+		color: inherit;
+	}
+
+	&__media img {
+		display: block;
+		width: 100%;
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
+		border-radius: 16px;
+	}
+
+	&__date {
+		display: block;
+		margin-top: var( --wp--preset--spacing--2 );
+		font-family: var( --wp--preset--font-family--work-sans );
+		font-size: var( --wp--preset--font-size--label );
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: var( --wp--preset--color--moss );
+	}
+
+	&__title {
+		font-family: var( --wp--preset--font-family--fraunces );
+		font-size: var( --wp--preset--font-size--h2 );
+		color: var( --wp--preset--color--forest );
+		margin: 0.2rem 0 0.5rem;
+	}
+
+	&__excerpt {
+		font-size: var( --wp--preset--font-size--body );
+		color: var( --wp--preset--color--charcoal );
+		max-width: 60ch;
+	}
+
+	&__placeholder {
+		padding: var( --wp--preset--spacing--3 );
+		background: var( --wp--preset--color--linen-raised );
+		border-radius: 8px;
+		font-style: italic;
+		color: var( --wp--preset--color--moss );
+	}
+}

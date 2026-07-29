@@ -1,0 +1,35 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","anchor":"wp--skip-link--target","layout":{"type":"constrained"}} -->
+<main class="wp-block-group" id="wp--skip-link--target">
+	<!-- wp:group {"layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|6","bottom":"var:preset|spacing|4"}}}} -->
+	<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--6);padding-bottom:var(--wp--preset--spacing--4)">
+		<!-- wp:heading {"level":1,"fontSize":"h1"} -->
+		<h1 class="wp-block-heading has-h1-font-size">Päevik</h1>
+		<!-- /wp:heading -->
+
+		<!-- wp:paragraph {"fontSize":"body-lg"} -->
+		<p class="has-body-lg-font-size">Taastamise lugu, üks nädal korraga — sellisena, nagu see tegelikult juhtub.</p>
+		<!-- /wp:paragraph -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:query {"queryId":3,"query":{"perPage":10,"postType":"oja_journal","order":"desc","orderBy":"date","inherit":true},"layout":{"type":"default"}} -->
+	<div class="wp-block-query">
+		<!-- wp:post-template -->
+			<!-- wp:oja-talu/journal-entry /-->
+		<!-- /wp:post-template -->
+
+		<!-- wp:query-pagination -->
+		<div class="wp-block-query-pagination">
+			<!-- wp:query-pagination-previous {"label":"Vanemad sissekanded"} /-->
+			<!-- wp:query-pagination-numbers /-->
+			<!-- wp:query-pagination-next {"label":"Uuemad sissekanded"} /-->
+		</div>
+		<!-- /wp:query-pagination -->
+	</div>
+	<!-- /wp:query -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

@@ -1,0 +1,93 @@
+/**
+ * Oja Talu — woocommerce.css
+ *
+ * Only enqueued when WooCommerce is active. Covers what block supports
+ * and theme.json can't reach: WooCommerce's own block markup classes,
+ * the mobile sticky add-to-cart bar, and calming down WooCommerce's
+ * default notice styling to match the brand's restraint (Design System
+ * §17 — "boutique farm shop, not Amazon").
+ *
+ * @package Oja_Talu
+ */
+
+/* ── Product image gallery ─────────────────────────────────────────── */
+
+.woocommerce-product-gallery img {
+	border-radius: 16px;
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+}
+
+/* ── Mini-cart drawer ───────────────────────────────────────────────── */
+
+.wc-block-mini-cart__drawer {
+	--wc-mini-cart-drawer-max-width: 420px;
+}
+
+.wc-block-mini-cart__drawer .wc-block-components-drawer__screen-overlay {
+	background: rgba( 41, 41, 37, 0.35 );
+}
+
+/* ── Cart / Checkout blocks: match the theme's own spacing rhythm ──── */
+
+.wp-block-woocommerce-cart,
+.wp-block-woocommerce-checkout {
+	max-width: var( --wp--style--global--content-size, 900px );
+	margin-inline: auto;
+	padding-block: var( --wp--preset--spacing--5 );
+}
+
+.wc-block-components-quantity-selector {
+	border-radius: 8px;
+	border-color: color-mix( in srgb, var( --wp--preset--color--oak ) 40%, transparent );
+}
+
+/* ── Notices: calm, not commercial-urgent ──────────────────────────── */
+/* Default WooCommerce notices lean bright yellow/green; restyle within
+   the brand palette so an "added to cart" confirmation reads as quiet
+   confirmation, not a marketing alert. */
+
+.woocommerce-message,
+.wc-block-components-notice-banner.is-success {
+	border-left-color: var( --wp--preset--color--moss );
+	background: color-mix( in srgb, var( --wp--preset--color--moss ) 12%, var( --wp--preset--color--linen ) );
+	color: var( --wp--preset--color--charcoal );
+}
+
+.woocommerce-error,
+.wc-block-components-notice-banner.is-error {
+	border-left-color: var( --wp--preset--color--clay );
+	background: color-mix( in srgb, var( --wp--preset--color--clay ) 12%, var( --wp--preset--color--linen ) );
+	color: var( --wp--preset--color--charcoal );
+}
+
+/* ── Sticky mobile add-to-cart bar ──────────────────────────────────── */
+/* Hidden by default; assets/js/sticky-add-to-cart.js toggles
+   .is-visible once the product page's own Add to Cart button has
+   scrolled out of view. Hairline top border, no shadow — matches the
+   "no floating cards" shadow rule even for this persistent bar. */
+
+.oja-sticky-atc {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 40;
+	display: none;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 0.85rem 1.25rem;
+	background: var( --wp--preset--color--linen );
+	border-top: 1px solid var( --wp--preset--color--linen-raised );
+}
+
+.oja-sticky-atc.is-visible {
+	display: flex;
+}
+
+@media ( min-width: 782px ) {
+	.oja-sticky-atc {
+		display: none !important;
+	}
+}

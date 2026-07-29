@@ -1,0 +1,16 @@
+{
+	"name": "oja-talu",
+	"version": "0.1.0",
+	"private": true,
+	"description": "Build tooling for the Oja Talu WordPress block theme's custom Gutenberg blocks.",
+	"scripts": {
+		"build": "wp-scripts build blocks/src/hero blocks/src/story blocks/src/brand-card blocks/src/brand-cards blocks/src/season blocks/src/journal-entry blocks/src/product-feature blocks/src/visit --output-path=blocks/build",
+		"start": "wp-scripts start blocks/src/hero blocks/src/story blocks/src/brand-card blocks/src/brand-cards blocks/src/season blocks/src/journal-entry blocks/src/product-feature blocks/src/visit --output-path=blocks/build",
+		"lint:js": "wp-scripts lint-js blocks/src",
+		"lint:css": "wp-scripts lint-style blocks/src",
+		"format": "wp-scripts format blocks/src"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^30.0.0"
+	}
+}

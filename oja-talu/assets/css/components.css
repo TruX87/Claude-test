@@ -1,0 +1,212 @@
+/**
+ * Oja Talu — components.css
+ *
+ * Hand-written rules for things that aren't a custom block and aren't
+ * expressible in theme.json: the contact form, the shop category tabs,
+ * the Gallery/Quote style variations, and the footer's mobile-accordion
+ * base styles (the actual open/close toggle is a few lines of JS —
+ * see assets/js/footer-accordion.js — this file only sets up the
+ * collapsed/expanded visual states it switches between).
+ *
+ * @package Oja_Talu
+ */
+
+/* ── Contact form (inc/forms.php shortcode) ───────────────────────── */
+
+.oja-form {
+	display: grid;
+	gap: var( --wp--preset--spacing--2 );
+	max-width: 52ch;
+}
+
+.oja-form__field {
+	display: grid;
+	gap: 0.3rem;
+}
+
+.oja-form__field label {
+	font-family: var( --wp--preset--font-family--work-sans );
+	font-size: var( --wp--preset--font-size--label );
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: var( --wp--preset--color--moss );
+}
+
+.oja-form__field input,
+.oja-form__field textarea {
+	font-family: var( --wp--preset--font-family--work-sans );
+	font-size: var( --wp--preset--font-size--body );
+	padding: 0.65rem 0.85rem;
+	border: 1px solid color-mix( in srgb, var( --wp--preset--color--oak ) 40%, transparent );
+	border-radius: 8px;
+	background: var( --wp--preset--color--linen-raised );
+	color: var( --wp--preset--color--charcoal );
+}
+
+.oja-form__field input:focus-visible,
+.oja-form__field textarea:focus-visible {
+	outline: 2px solid var( --wp--preset--color--forest );
+	outline-offset: 1px;
+	background: var( --wp--preset--color--linen );
+}
+
+/* Honeypot — hidden from sighted users, but not via display:none/
+   visibility:hidden, which some bots skip when filling forms. */
+.oja-form__field--honeypot {
+	position: absolute;
+	left: -9999px;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+.oja-form__submit {
+	justify-self: start;
+	margin-top: var( --wp--preset--spacing--2 );
+	font-family: var( --wp--preset--font-family--work-sans );
+	font-size: var( --wp--preset--font-size--label );
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	padding: 1rem 2rem;
+	border: none;
+	border-radius: 999px;
+	background: var( --wp--preset--color--forest );
+	color: var( --wp--preset--color--linen );
+	cursor: pointer;
+	transition: background var( --oja-duration-fast ) var( --oja-ease-calm );
+}
+
+.oja-form__submit:hover,
+.oja-form__submit:focus-visible {
+	background: color-mix( in srgb, var( --wp--preset--color--forest ) 85%, black );
+}
+
+.oja-form-notice {
+	padding: 0.75rem 1rem;
+	border-radius: 8px;
+	font-size: var( --wp--preset--font-size--body );
+}
+
+.oja-form-notice--success {
+	background: color-mix( in srgb, var( --wp--preset--color--moss ) 18%, transparent );
+	color: var( --wp--preset--color--forest );
+}
+
+.oja-form-notice--error {
+	background: color-mix( in srgb, var( --wp--preset--color--clay ) 18%, transparent );
+	color: var( --wp--preset--color--clay );
+}
+
+/* ── Shop category tabs (patterns/shop-intro.php) ─────────────────── */
+
+.oja-shop-tabs {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1.25rem;
+	border-bottom: 1px solid var( --wp--preset--color--linen-raised );
+	padding-bottom: 0.9rem;
+	margin-bottom: var( --wp--preset--spacing--4 );
+}
+
+.oja-shop-tabs__tab {
+	font-family: var( --wp--preset--font-family--work-sans );
+	font-size: var( --wp--preset--font-size--label );
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	text-decoration: none;
+	color: var( --wp--preset--color--charcoal );
+	padding-bottom: 0.4rem;
+	border-bottom: 1px solid transparent;
+}
+
+.oja-shop-tabs__tab.is-active {
+	color: var( --wp--preset--color--clay );
+	border-bottom-color: var( --wp--preset--color--clay );
+}
+
+/* ── Gallery style variation: "Oja" ────────────────────────────────── */
+/* Design System §14: 1:1 ratio, no masonry, natural light, no heavy
+   filters — locked spacing/ratio rather than left to per-instance
+   settings. */
+
+.wp-block-gallery.is-style-oja-gallery {
+	--wp--style--unstable-gallery-gap: var( --wp--preset--spacing--2 );
+}
+
+.wp-block-gallery.is-style-oja-gallery .wp-block-image img {
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+	border-radius: 8px;
+}
+
+/* ── Quote style variation: "Oja" ──────────────────────────────────── */
+
+.wp-block-quote.is-style-oja-quote {
+	font-family: var( --wp--preset--font-family--fraunces );
+	font-style: italic;
+	font-size: var( --wp--preset--font-size--body-lg );
+	border-left: 2px solid var( --wp--preset--color--oak );
+	padding-left: var( --wp--preset--spacing--3 );
+	margin-inline: 0;
+	max-width: 44ch;
+}
+
+/* ── Header scroll state (assets/js/interactivity.js) ──────────────── */
+
+.oja-header {
+	position: sticky;
+	top: 0;
+	z-index: 50;
+	background: transparent;
+	border-bottom: 1px solid transparent;
+	transition: background var( --oja-duration-fast ) var( --oja-ease-calm ),
+		border-color var( --oja-duration-fast ) var( --oja-ease-calm );
+}
+
+.oja-header.is-scrolled {
+	background: var( --wp--preset--color--linen );
+	border-bottom-color: var( --wp--preset--color--linen-raised );
+}
+
+/* ── Footer mobile accordion (JS-driven, see assets/js) ────────────── */
+
+@media ( max-width: 781px ) {
+	.oja-footer .wp-block-columns {
+		flex-wrap: wrap;
+	}
+
+	.oja-footer .wp-block-column {
+		flex-basis: 100% !important;
+	}
+
+	.oja-footer .wp-block-column > .wp-block-heading {
+		cursor: pointer;
+		position: relative;
+		padding-right: 1.5rem;
+	}
+
+	.oja-footer .wp-block-column > .wp-block-heading::after {
+		content: '+';
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+
+	.oja-footer .wp-block-column[data-oja-expanded="true"] > .wp-block-heading::after {
+		content: '–';
+	}
+
+	.oja-footer .wp-block-column > .wp-block-navigation {
+		display: none;
+	}
+
+	.oja-footer .wp-block-column[data-oja-expanded="true"] > .wp-block-navigation {
+		display: block;
+	}
+}
+
+/* Without JS, every footer column must stay fully visible and usable —
+   progressive enhancement, not a required dependency for basic access. */
+.no-js .oja-footer .wp-block-column > .wp-block-navigation {
+	display: block !important;
+}

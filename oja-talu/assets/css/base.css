@@ -1,0 +1,103 @@
+/**
+ * Oja Talu — base.css
+ *
+ * Global rules that theme.json cannot express: resets, motion/focus
+ * accessibility behaviour, and the skip-link. Component-level styling
+ * (forms, galleries, WooCommerce overrides) lives in components.css and
+ * woocommerce.css (Phase 5 step 9) — this file stays deliberately small.
+ *
+ * @package Oja_Talu
+ */
+
+/* ── Reset ──────────────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+img,
+video,
+iframe {
+	max-width: 100%;
+	height: auto;
+}
+
+/* ── Motion ─────────────────────────────────────────────────────── */
+/* Design System §6: fade-in, slow image reveal, gentle hover, smooth
+   scroll only — 300–700ms, no parallax, no bounce/elastic easing. */
+
+:root {
+	--oja-duration-fast: 300ms;
+	--oja-duration-slow: 700ms;
+	--oja-ease-calm: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+.oja-reveal {
+	opacity: 0;
+	transform: translateY(12px);
+	transition: opacity var(--oja-duration-slow) var(--oja-ease-calm),
+		transform var(--oja-duration-slow) var(--oja-ease-calm);
+}
+
+.oja-reveal.is-visible {
+	opacity: 1;
+	transform: none;
+}
+
+/* Accessibility requirement (Design System §22): every animation must
+   collapse to an instant state change when the user has asked for
+   reduced motion — no exceptions carved out for "just a fade." */
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+
+	.oja-reveal,
+	.oja-reveal.is-visible {
+		transition: none;
+		opacity: 1;
+		transform: none;
+	}
+}
+
+/* ── Focus & keyboard access ────────────────────────────────────── */
+
+:focus-visible {
+	outline: 2px solid var( --wp--preset--color--forest );
+	outline-offset: 2px;
+}
+
+/* On dark grounds (e.g. inside the Forest-background footer) the same
+   outline colour would disappear — swap to Linen there. */
+.wp-block-template-part[data-oja-surface="dark"] :focus-visible,
+footer.wp-block-template-part :focus-visible {
+	outline-color: var( --wp--preset--color--linen );
+}
+
+/* ── Skip link ──────────────────────────────────────────────────── */
+/* Required for keyboard/screen-reader users to bypass the header
+   navigation (Design System §22, "keyboard navigation"). WordPress core
+   provides the skip-link target id (#wp--skip-link--target); this theme
+   only needs to style it, since block themes don't auto-print one. */
+
+.skip-link {
+	position: absolute;
+	top: -100px;
+	left: 0;
+	z-index: 100000;
+	padding: 0.75rem 1.25rem;
+	background: var( --wp--preset--color--forest );
+	color: var( --wp--preset--color--linen );
+	text-decoration: none;
+	font-family: var( --wp--preset--font-family--work-sans );
+}
+
+.skip-link:focus {
+	top: 0;
+}

@@ -1,0 +1,19 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","anchor":"wp--skip-link--target","layout":{"type":"constrained","contentSize":"680px"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|6","bottom":"var:preset|spacing|6"}}}} -->
+<main class="wp-block-group" id="wp--skip-link--target" style="padding-top:var(--wp--preset--spacing--6);padding-bottom:var(--wp--preset--spacing--6)">
+	<!--
+		WooCommerce has not yet blockified the My Account screens
+		(dashboard, orders, addresses, etc.) the way it has Cart and
+		Checkout — the shortcode is the only supported way to render
+		them as of this theme's target WooCommerce version. This is the
+		one deliberate exception to "Gutenberg native" in the theme,
+		and is a WooCommerce-side limitation, not a choice made here.
+	-->
+	<!-- wp:shortcode -->
+	[woocommerce_my_account]
+	<!-- /wp:shortcode -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

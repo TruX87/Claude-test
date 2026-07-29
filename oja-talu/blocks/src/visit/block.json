@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "oja-talu/visit",
+	"title": "Oja Visit",
+	"category": "oja-talu",
+	"description": "Practical arrival information: address, hours, a static map image, and a get-directions link. Deliberately not an embedded interactive map — see Phase 4 §5.",
+	"textdomain": "oja-talu",
+	"attributes": {
+		"address": { "type": "string", "default": "" },
+		"hours": { "type": "string", "default": "" },
+		"phone": { "type": "string", "default": "" },
+		"arrivalNote": { "type": "string", "source": "html", "selector": "p.oja-visit__note", "default": "" },
+		"mapImageId": { "type": "number", "default": 0 },
+		"mapImageUrl": { "type": "string", "default": "" },
+		"mapImageAlt": { "type": "string", "default": "" },
+		"directionsUrl": { "type": "string", "default": "" }
+	},
+	"supports": { "html": false, "color": false },
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

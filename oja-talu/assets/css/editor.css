@@ -1,0 +1,19 @@
+/**
+ * Oja Talu — editor.css
+ *
+ * Loaded via add_editor_style() in inc/theme-setup.php. Deliberately
+ * almost empty: fonts, colours, spacing, and type sizes all come from
+ * theme.json, which WordPress already applies inside the block editor
+ * iframe automatically (WP 6.5+ fontFace generation included). This file
+ * exists only for the handful of things the editor UI itself needs that
+ * aren't part of the rendered output.
+ *
+ * @package Oja_Talu
+ */
+
+/* Keep the editor's content column readable at the same width readers
+   will actually see, rather than the editor chrome's default. */
+.editor-styles-wrapper .is-root-container {
+	max-width: var( --wp--style--global--content-size );
+	margin-inline: auto;
+}

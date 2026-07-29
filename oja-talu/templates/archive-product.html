@@ -1,0 +1,30 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","anchor":"wp--skip-link--target","layout":{"type":"constrained"}} -->
+<main class="wp-block-group" id="wp--skip-link--target">
+
+	<!-- wp:pattern {"slug":"oja-talu/shop-intro"} /-->
+
+	<!-- wp:woocommerce/product-collection {"queryId":0,"query":{"perPage":12,"pages":0,"offset":0,"postType":"product","order":"asc","orderBy":"title","search":"","exclude":[],"inherit":true,"taxQuery":[],"isProductCollectionBlock":true,"woocommerceStockStatus":["instock","outofstock","onbackorder"]},"displayLayout":{"type":"flex","columns":4}} -->
+	<div class="wp-block-woocommerce-product-collection">
+		<!-- wp:woocommerce/product-template -->
+			<!-- wp:woocommerce/product-image {"imageSizing":"cropped"} /-->
+			<!-- wp:post-title {"level":3,"isLink":true,"fontSize":"h3"} /-->
+			<!-- wp:woocommerce/product-price /-->
+			<!-- wp:woocommerce/product-button /-->
+		<!-- /wp:woocommerce/product-template -->
+
+		<!-- wp:query-pagination -->
+		<div class="wp-block-query-pagination">
+			<!-- wp:query-pagination-previous /-->
+			<!-- wp:query-pagination-numbers /-->
+			<!-- wp:query-pagination-next /-->
+		</div>
+		<!-- /wp:query-pagination -->
+	</div>
+	<!-- /wp:woocommerce/product-collection -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

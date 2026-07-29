@@ -1,0 +1,23 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "oja-talu/story",
+	"title": "Oja Story",
+	"category": "oja-talu",
+	"description": "Alternating image + text row used for history, restoration, and journey narrative sections.",
+	"textdomain": "oja-talu",
+	"attributes": {
+		"mediaId": { "type": "number", "default": 0 },
+		"mediaUrl": { "type": "string", "default": "" },
+		"mediaAlt": { "type": "string", "default": "" },
+		"imagePosition": { "type": "string", "default": "left", "enum": [ "left", "right" ] },
+		"heading": { "type": "string", "source": "html", "selector": "h2", "default": "" }
+	},
+	"supports": {
+		"html": false,
+		"color": false,
+		"spacing": { "padding": false, "margin": false }
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

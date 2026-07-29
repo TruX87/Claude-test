@@ -1,0 +1,14 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "oja-talu/journal-entry",
+	"title": "Oja Journal Entry",
+	"category": "oja-talu",
+	"description": "Renders one Journal post inside a Query Loop: large image, date, and short story. Not meant to be inserted manually — it reads the current post from block context.",
+	"textdomain": "oja-talu",
+	"usesContext": [ "postType", "postId", "queryId" ],
+	"supports": { "html": false, "color": false, "reusable": false },
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

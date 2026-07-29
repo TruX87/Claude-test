@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "oja-talu/brand-card",
+	"title": "Oja Brand Card",
+	"category": "oja-talu",
+	"description": "One of the three brand-family destinations (Oja Talu, Oja Aed, Rohebaar). Used exclusively inside the Brand Cards wrapper block.",
+	"textdomain": "oja-talu",
+	"parent": [ "oja-talu/brand-cards" ],
+	"attributes": {
+		"variant": { "type": "string", "default": "oja-talu", "enum": [ "oja-talu", "oja-aed", "rohebaar" ] },
+		"mediaId": { "type": "number", "default": 0 },
+		"mediaUrl": { "type": "string", "default": "" },
+		"mediaAlt": { "type": "string", "default": "" },
+		"title": { "type": "string", "source": "html", "selector": "h3", "default": "" },
+		"description": { "type": "string", "source": "html", "selector": "p", "default": "" },
+		"linkText": { "type": "string", "default": "" },
+		"linkUrl": { "type": "string", "default": "" }
+	},
+	"supports": {
+		"html": false,
+		"color": false,
+		"reusable": false
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

@@ -1,0 +1,16 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "oja-talu/product-feature",
+	"title": "Oja Product Feature",
+	"category": "oja-talu",
+	"description": "Features one live WooCommerce product (image, name, short excerpt, price) outside the main shop query — e.g. the Homepage's Products section.",
+	"textdomain": "oja-talu",
+	"attributes": {
+		"productId": { "type": "number", "default": 0 }
+	},
+	"supports": { "html": false, "color": false },
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "oja-talu/season",
+	"title": "Oja Season",
+	"category": "oja-talu",
+	"description": "Small editorial card for what's in season right now (e.g. \"Juuli aias\").",
+	"textdomain": "oja-talu",
+	"attributes": {
+		"mediaId": { "type": "number", "default": 0 },
+		"mediaUrl": { "type": "string", "default": "" },
+		"mediaAlt": { "type": "string", "default": "" },
+		"title": { "type": "string", "source": "html", "selector": "h3", "default": "" },
+		"text": { "type": "string", "source": "html", "selector": "p", "default": "" },
+		"linkUrl": { "type": "string", "default": "" }
+	},
+	"supports": { "html": false, "color": false },
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

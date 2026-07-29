@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "oja-talu/brand-cards",
+	"title": "Oja Brand Cards",
+	"category": "oja-talu",
+	"description": "The Homepage's 'three brands' fork — a fixed set of exactly three Brand Card blocks (Oja Talu, Oja Aed, Rohebaar).",
+	"textdomain": "oja-talu",
+	"supports": {
+		"html": false,
+		"align": [ "wide" ]
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

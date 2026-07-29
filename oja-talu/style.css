@@ -1,0 +1,23 @@
+/*
+Theme Name: Oja Talu
+Theme URI: https://ojatalu.ee
+Author: Oja Talu
+Author URI: https://ojatalu.ee
+Description: Custom Full Site Editing block theme for Oja Talu — a working farmstead on Saaremaa, Estonia, and the master brand for its two sub-brands, Oja Aed (garden, products, craftsmanship) and Rohebaar (food, drink, visitor experience). Built to the client's OJA_TALU_DESIGN_SYSTEM_v1.0 brand specification.
+Version: 0.1.0
+Requires at least: 6.5
+Tested up to: 6.7
+Requires PHP: 8.0
+WC requires at least: 8.3
+WC tested up to: 9.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: oja-talu
+Tags: full-site-editing, block-patterns, e-commerce, custom-colors, custom-logo, custom-menu, translation-ready, block-styles
+
+This file intentionally carries no CSS rules beyond this header comment.
+All visual styling lives in theme.json (design tokens) and assets/css/
+(rules theme.json cannot express). WordPress requires this header block
+for the theme to be recognised; a block theme does not enqueue style.css
+as a stylesheet by default — see inc/theme-setup.php.
+*/

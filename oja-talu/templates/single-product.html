@@ -1,0 +1,47 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","anchor":"wp--skip-link--target","layout":{"type":"constrained"}} -->
+<main class="wp-block-group" id="wp--skip-link--target">
+
+	<!-- wp:woocommerce/breadcrumbs {"fontSize":"label"} /-->
+
+	<!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|5"}}}} -->
+	<div class="wp-block-columns">
+
+		<!-- wp:column -->
+		<div class="wp-block-column">
+			<!-- wp:woocommerce/product-image-gallery /-->
+		</div>
+		<!-- /wp:column -->
+
+		<!-- wp:column -->
+		<div class="wp-block-column">
+			<!-- wp:post-title {"level":1,"fontSize":"h2"} /-->
+			<!-- wp:woocommerce/product-price {"fontSize":"body-lg"} /-->
+			<!-- wp:woocommerce/product-summary /-->
+			<!-- wp:woocommerce/product-stock-indicator /-->
+			<!-- wp:woocommerce/add-to-cart-form /-->
+		</div>
+		<!-- /wp:column -->
+
+	</div>
+	<!-- /wp:columns -->
+
+</main>
+<!-- /wp:group -->
+
+<!--
+	Mobile-only sticky "back to purchase" bar. Not a duplicate Add to
+	Cart form — re-implementing WooCommerce's own stock/variation/
+	quantity logic independently would be the actual shortcut here, and
+	a fragile one. This just scrolls back up to the real form; see
+	assets/js/interactivity.js and assets/css/woocommerce.css
+	(.oja-sticky-atc).
+-->
+<div class="oja-sticky-atc">
+	<!-- wp:post-title {"level":4,"fontSize":"body"} /-->
+	<!-- wp:woocommerce/product-price {"fontSize":"body"} /-->
+	<button class="oja-sticky-atc__button" type="button">Osta</button>
+</div>
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

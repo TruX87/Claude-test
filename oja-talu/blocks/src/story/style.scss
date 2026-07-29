@@ -1,0 +1,49 @@
+.oja-story {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: var( --wp--preset--spacing--5 );
+	align-items: center;
+	max-width: var( --wp--style--global--content-size, 900px );
+	margin-inline: auto;
+	padding-block: var( --wp--preset--spacing--6 );
+
+	&--right {
+		.oja-story__media {
+			order: 2;
+		}
+		.oja-story__content {
+			order: 1;
+		}
+	}
+
+	&__media img {
+		display: block;
+		width: 100%;
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
+		border-radius: 16px;
+	}
+
+	&__content h2 {
+		font-family: var( --wp--preset--font-family--fraunces );
+		font-size: var( --wp--preset--font-size--h2 );
+		color: var( --wp--preset--color--forest );
+		margin: 0 0 0.75rem;
+	}
+
+	&__body {
+		max-width: 42ch;
+		font-size: var( --wp--preset--font-size--body );
+		line-height: 1.8;
+		color: var( --wp--preset--color--charcoal );
+	}
+
+	@media ( max-width: 781px ) {
+		grid-template-columns: 1fr;
+
+		&--right .oja-story__media,
+		&--right .oja-story__content {
+			order: initial;
+		}
+	}
+}

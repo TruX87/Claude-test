@@ -1,0 +1,26 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "oja-talu/hero",
+	"title": "Oja Hero",
+	"category": "oja-talu",
+	"description": "Full-bleed image with a short title, one line of lead text, and a single CTA. Introduces a place — Home or one of the three brand pages.",
+	"textdomain": "oja-talu",
+	"attributes": {
+		"mediaId": { "type": "number", "default": 0 },
+		"mediaUrl": { "type": "string", "default": "" },
+		"mediaAlt": { "type": "string", "default": "" },
+		"title": { "type": "string", "source": "html", "selector": "h1", "default": "" },
+		"lead": { "type": "string", "source": "html", "selector": "p.oja-hero__lead", "default": "" },
+		"ctaText": { "type": "string", "default": "" },
+		"ctaUrl": { "type": "string", "default": "" }
+	},
+	"supports": {
+		"html": false,
+		"align": [ "full", "wide" ],
+		"color": false,
+		"spacing": { "padding": false, "margin": false }
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}
