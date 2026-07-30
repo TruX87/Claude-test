@@ -1,8 +1,17 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
 
+<!--
+	This template intentionally has no direct pattern reference — a
+	direct `wp:pattern` here (an earlier version of this file) would
+	give the Page editor nothing editable at all, since the template
+	itself would own all the content instead of the page. wp:post-content
+	is the actual editable area; the "Page — Oja Talu Story" pattern is
+	inserted once into each page's own content from the block inserter
+	(category "Oja Talu"), the normal way a starting-point pattern works.
+-->
 <!-- wp:group {"tagName":"main","anchor":"wp--skip-link--target","layout":{"type":"constrained"}} -->
 <main class="wp-block-group" id="wp--skip-link--target">
-	<!-- wp:pattern {"slug":"oja-talu/page-oja-talu-story"} /-->
+	<!-- wp:post-content {"layout":{"type":"constrained"}} /-->
 </main>
 <!-- /wp:group -->
 
