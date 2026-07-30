@@ -2,10 +2,11 @@
 /**
  * Custom block registration.
  *
- * Blocks are authored in blocks/src and compiled by @wordpress/scripts
- * into blocks/build (see package.json). This file only registers the
- * compiled output — it has no knowledge of JSX/Sass, so it works
- * whether or not Node is available on the server.
+ * Blocks are authored in blocks/src and compiled by webpack (see
+ * webpack.config.js and package.json — `npm run build`) into
+ * blocks/build. This file only registers the compiled output — it has
+ * no knowledge of JSX/Sass, so it works whether or not Node is
+ * available on the server.
  *
  * @package Oja_Talu
  */
